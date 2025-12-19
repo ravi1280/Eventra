@@ -241,6 +241,27 @@
     flex-wrap: wrap;
 }
 
+
+.events-grid {
+    grid-template-columns: 1fr;
+}
+
+.cta-buttons {
+    flex-direction: column;
+}
+
+.cta-buttons .btn {
+    width: 100%;
+}
+}
+
+/* Tablet - 2 columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .btn-lg {
     padding: 1rem 2rem;
     font-size: 1.1rem;
@@ -250,6 +271,10 @@
 @media (max-width: 768px) {
     .hero-section {
         padding: var(--spacing-xl) 0;
+    }
+
+    .hero-search {
+        display: none;
     }
 
     .search-box {
