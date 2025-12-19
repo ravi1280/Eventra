@@ -27,7 +27,6 @@ const Navbar = () => {
                 <div className="navbar-content">
                     {/* Logo */}
                     <Link to="/" className="navbar-logo">
-                        <span className="logo-icon">🎉</span>
                         <span className="logo-text">Eventra</span>
                     </Link>
 

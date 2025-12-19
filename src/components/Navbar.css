@@ -250,8 +250,12 @@
         display: flex;
     }
 
+    .navbar-logo {
+        font-size: 1.25rem;
+    }
+
     .logo-text {
-        display: none;
+        font-size: 1.25rem;
     }
 }
 
