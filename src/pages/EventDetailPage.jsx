@@ -153,64 +153,67 @@ const EventDetailPage = () => {
                         <CountdownTimer eventDate={event.date} eventTime={event.time} />
                     </div>
 
-                    {/* Registration Card */}
-                    <div className="event-about-section">
-                        <h3>Registration</h3>
-                        <div className="registration-progress">
-                            <div className="progress-header">
-                                <span>{event.registered} registered</span>
-                                <span>{progress}%</span>
+                    {/* Registration and Share Event Row */}
+                    <div className="registration-share-row">
+                        {/* Registration Card */}
+                        <div className="event-about-section">
+                            <h3>Registration</h3>
+                            <div className="registration-progress">
+                                <div className="progress-header">
+                                    <span>{event.registered} registered</span>
+                                    <span>{progress}%</span>
+                                </div>
+                                <div className="progress-bar">
+                                    <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+                                </div>
+                                <p className="progress-note">{event.capacity - event.registered} spots remaining</p>
                             </div>
-                            <div className="progress-bar">
-                                <div className="progress-fill" style={{ width: `${progress}%` }}></div>
-                            </div>
-                            <p className="progress-note">{event.capacity - event.registered} spots remaining</p>
+
+                            {isPublic() && !isFull && !registrationSuccess && (
+                                <button
+                                    className="btn btn-primary btn-full"
+                                    onClick={handleRegister}
+                                    disabled={isRegistering}
+                                >
+                                    {isRegistering ? 'Registering...' : 'Register for Event'}
+                                </button>
+                            )}
+
+                            {registrationSuccess && (
+                                <div className="alert alert-success">
+                                    <div>✅ Successfully registered for {event.title}!</div>
+                                    <Link to="/my-events" className="btn btn-ghost btn-sm" style={{ marginTop: 'var(--spacing-sm)' }}>
+                                        View My Events
+                                    </Link>
+                                </div>
+                            )}
+
+                            {registrationError && (
+                                <div className="alert alert-error">
+                                    ❌ {registrationError}
+                                </div>
+                            )}
+
+                            {isFull && (
+                                <div className="alert alert-error">
+                                    This event is fully booked
+                                </div>
+                            )}
+
+                            {!isPublic() && (
+                                <Link to="/login" className="btn btn-primary btn-full">
+                                    Login to Register
+                                </Link>
+                            )}
                         </div>
 
-                        {isPublic() && !isFull && !registrationSuccess && (
-                            <button
-                                className="btn btn-primary btn-full"
-                                onClick={handleRegister}
-                                disabled={isRegistering}
-                            >
-                                {isRegistering ? 'Registering...' : 'Register for Event'}
-                            </button>
-                        )}
-
-                        {registrationSuccess && (
-                            <div className="alert alert-success">
-                                <div>✅ Successfully registered for {event.title}!</div>
-                                <Link to="/my-events" className="btn btn-ghost btn-sm" style={{ marginTop: 'var(--spacing-sm)' }}>
-                                    View My Events
-                                </Link>
+                        {/* Share Event Card */}
+                        <div className="event-about-section">
+                            <h3>Share Event</h3>
+                            <div className="share-buttons">
+                                <button className="btn btn-ghost btn-sm">📱 Share</button>
+                                <button className="btn btn-ghost btn-sm">🔗 Copy Link</button>
                             </div>
-                        )}
-
-                        {registrationError && (
-                            <div className="alert alert-error">
-                                ❌ {registrationError}
-                            </div>
-                        )}
-
-                        {isFull && (
-                            <div className="alert alert-error">
-                                This event is fully booked
-                            </div>
-                        )}
-
-                        {!isPublic() && (
-                            <Link to="/login" className="btn btn-primary btn-full">
-                                Login to Register
-                            </Link>
-                        )}
-                    </div>
-
-                    {/* Share Event Card */}
-                    <div className="event-about-section">
-                        <h3>Share Event</h3>
-                        <div className="share-buttons">
-                            <button className="btn btn-ghost btn-sm">📱 Share</button>
-                            <button className="btn btn-ghost btn-sm">🔗 Copy Link</button>
                         </div>
                     </div>
 

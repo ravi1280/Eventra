@@ -206,26 +206,6 @@
 .progress-note {
     font-size: 0.875rem;
     color: var(--text-muted);
-    margin-top: var(--spacing-sm);
-    margin-bottom: 0;
-    font-weight: 500;
-}
-
-.share-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
-}
-
-.share-buttons .btn {
-    font-size: 1rem;
-    padding: var(--spacing-md) var(--spacing-lg);
-}
-
-@media (max-width: 1024px) {
-    .event-detail-content-full {
-        padding: 0 var(--spacing-lg);
-    }
 }
 
 @media (max-width: 768px) {
@@ -268,5 +248,43 @@
 
     .share-buttons {
         grid-template-columns: 1fr;
+    }
+}
+
+.share-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.share-buttons .btn {
+    font-size: 1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* Registration and Share Event Row */
+.registration-share-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+    padding: var(--spacing-2xl) 0;
+}
+
+.registration-share-row .event-about-section {
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .event-detail-content-full {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .registration-share-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
     }
 }
